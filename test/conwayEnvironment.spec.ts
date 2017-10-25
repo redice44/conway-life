@@ -1,8 +1,8 @@
 import 'mocha';
 import { expect } from 'chai';
 
-import Environment from '../src/conwayEnvironment';
-import Cell from '../src/conwayCell';
+import Environment from '../src/environment/conwayEnvironment';
+import Cell from '../src/cell/conwayCell';
 import { CONWAY_STATE } from '../src/conway';
 
 describe('A Conway Environment upon initialization', () => {

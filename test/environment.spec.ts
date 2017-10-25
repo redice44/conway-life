@@ -1,7 +1,7 @@
 import 'mocha';
 import { expect } from 'chai';
 
-import Environment from '../src/environment';
+import Environment from '../src/environment/environment';
 
 describe('An environment upon initialization', () => {
   const env: Environment<number> = new Environment(2, 2);

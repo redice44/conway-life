@@ -1,7 +1,7 @@
 import 'mocha';
 import { expect } from 'chai';
 
-import Cell from '../src/cell';
+import Cell from '../src/cell/cell';
 
 describe('A cell upon initialization', () => {
   it('should return the same index that was given', () => {

@@ -1,7 +1,7 @@
 import 'mocha';
 import { expect } from 'chai';
 
-import Cell from '../src/conwayCell';
+import Cell from '../src/cell/conwayCell';
 import { CONWAY_STATE, Conway } from '../src/conway';
 
 describe('A Conway cell upon initialization', () => {

@@ -1,5 +1,5 @@
 import Cell from './cell';
-import { CONWAY_STATE, Conway } from './conway';
+import { CONWAY_STATE, Conway } from '../conway';
 
 export default class ConwayCell extends Cell<Conway> {
   constructor(index: number, node: Conway) {

@@ -1,6 +1,6 @@
 import Environment from './environment';
-import Cell from './conwayCell';
-import { CONWAY_STATE, Conway } from './conway';
+import Cell from '../cell/conwayCell';
+import { CONWAY_STATE, Conway } from '../conway';
 
 export default class ConwayEnvironment extends Environment<Cell> {
   private initRate: number;
