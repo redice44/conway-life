@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register -w test/**/*.spec.ts --watch-extensions ts",
+    "test": "mocha -r ts-node/register -w test/**/*.spec.ts --watch-extensions ts --reporter list",
     "watch": "webpack --watch"
   },
   "keywords": [],

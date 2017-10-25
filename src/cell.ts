@@ -10,8 +10,4 @@ export default class Cell<T> {
   public getIndex(): number {
     return this.index;
   }
-
-  public update(): void {
-    throw new Error('Override Me');
-  }
 }
