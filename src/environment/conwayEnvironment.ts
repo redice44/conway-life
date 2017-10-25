@@ -17,19 +17,36 @@ export default class ConwayEnvironment extends Environment<Cell> {
     return this.nextCellStates;
   }
 
-  public next(): CONWAY_STATE[] {
-    this.nextCellStates = this.cells.map((cell) => {
-      const neighbors = cell.getNeighbors();
+  public next(): [CONWAY_STATE[], number[]] {
+    this.nextCellStates = this.nextState();
 
-      return cell.next(neighbors.map((index) => {
-        return this.cells[index].getState();
-      }));
-    });
-
+    let updatedCells = [];
+    let updatedIndices = [];
     this.cells.forEach((cell, i) => {
-      cell.update(this.nextCellStates[i]);
+      if (cell.getState() != this.nextCellStates[i]) {
+        updatedCells.push(cell);
+        updatedIndices.push(i);
+      }
     });
-    return this.nextCellStates;
+
+    return [this.updateState(updatedCells), updatedIndices];
+  }
+
+  private nextState(): CONWAY_STATE[] {
+    return this.cells.map(cell => 
+      cell.next(cell.getNeighbors().map(index => 
+        this.cells[index].getState()
+      )));
+  }
+
+  private updateState(cells: Cell[]): CONWAY_STATE[] {
+    let update: CONWAY_STATE[] = [];
+    cells.forEach((cell, i) => {
+      cell.update(this.nextCellStates[i]);
+      update.push(this.nextCellStates[i]);
+    });
+
+    return update;
   }
 
   public getCells(): Cell[] {

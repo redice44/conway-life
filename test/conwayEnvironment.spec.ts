@@ -43,9 +43,14 @@ describe('A Conway Environment', () => {
 
   it('should step accurately forward', () => {
     for (let i = 0; i < 50; i++) {
-      cellsState = env.next();
+      // cellsState = env.next()[0];
+      let update = env.next();
+      let updatedStates = update[0];
+      let updatedIndices = update[1];
       currentState = cells.map(getCellState);
-      expect(currentState).to.deep.equal(cellsState);
+      for (let j = 0; j < updatedIndices.length; j++) {
+        expect(currentState[updatedIndices[j]]).to.deep.equal(updatedStates[j]);
+      }
     }
   });
 });
