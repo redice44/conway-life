@@ -1,24 +1,24 @@
 {
-  "name": "life",
-  "version": "1.0.0",
+  "name": "conway-life",
+  "version": "0.0.a",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register -w test/**/*.spec.ts --watch-extensions ts --reporter list",
-    "watch": "webpack --watch"
+    "test": "mocha -r ts-node/register -w test/**/*.spec.ts --watch-extensions ts --reporter list"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Matt Thomson",
+    "email": "red.cataclysm@gmail.com"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.43",
     "@types/node": "^8.0.47",
     "chai": "^4.1.2",
     "mocha": "^4.0.1",
-    "ts-loader": "^3.0.5",
     "ts-node": "^3.3.0",
-    "typescript": "^2.5.3",
-    "webpack": "^3.8.1"
+    "typescript": "^2.5.3"
   }
 }
