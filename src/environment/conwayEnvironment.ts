@@ -20,37 +20,34 @@ export default class ConwayEnvironment extends Environment<Cell> {
   public next(): [CONWAY_STATE[], number[]] {
     this.nextCellStates = this.nextState();
 
-    let updatedCells = [];
     let updatedIndices = [];
     this.cells.forEach((cell, i) => {
       if (cell.getState() != this.nextCellStates[i]) {
-        updatedCells.push(cell);
         updatedIndices.push(i);
       }
     });
 
-    return [this.updateState(updatedCells), updatedIndices];
-  }
-
-  private nextState(): CONWAY_STATE[] {
-    return this.cells.map(cell => 
-      cell.next(cell.getNeighbors().map(index => 
-        this.cells[index].getState()
-      )));
-  }
-
-  private updateState(cells: Cell[]): CONWAY_STATE[] {
-    let update: CONWAY_STATE[] = [];
-    cells.forEach((cell, i) => {
-      cell.update(this.nextCellStates[i]);
-      update.push(this.nextCellStates[i]);
-    });
-
-    return update;
+    return [this.updateState(updatedIndices), updatedIndices];
   }
 
   public getCells(): Cell[] {
     return this.cells;
+  }
+
+  private nextState(): CONWAY_STATE[] {
+    return this.cells.map(cell => 
+      cell.next(cell.getNeighbors().map(index => this.cells[index].getState()))
+    );
+  }
+
+  private updateState(indices: number[]): CONWAY_STATE[] {
+    let update: CONWAY_STATE[] = [];
+    indices.forEach(i => {
+      this.cells[i].update(this.nextCellStates[i]);
+      update.push(this.nextCellStates[i]);
+    });
+
+    return update;
   }
 
   protected initializeCells() {

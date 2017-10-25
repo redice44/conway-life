@@ -31,7 +31,7 @@ describe('A Conway Environment upon initialization', () => {
 });
 
 describe('A Conway Environment', () => {
-  const env: Environment = new Environment(4, 4, 0.3);
+  const env: Environment = new Environment(16, 16, 0.3);
   let cellsState: CONWAY_STATE[] = env.initialize();
   const cells: Cell[] = env.getCells();
   let getCellState = cell => cell.getState();
@@ -43,7 +43,6 @@ describe('A Conway Environment', () => {
 
   it('should step accurately forward', () => {
     for (let i = 0; i < 50; i++) {
-      // cellsState = env.next()[0];
       let update = env.next();
       let updatedStates = update[0];
       let updatedIndices = update[1];
